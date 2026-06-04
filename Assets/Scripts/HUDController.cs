@@ -6,6 +6,7 @@ public class HUDController : MonoBehaviour
     public TextMeshProUGUI modeText;
     private PlayerController player;
 
+    public TextMeshProUGUI coinText;
     void Start()
     {
         player = FindFirstObjectByType<PlayerController>();
@@ -18,5 +19,9 @@ public class HUDController : MonoBehaviour
         modeText.color = player.isStealth
             ? new Color(0.11f, 0.62f, 0.46f)
             : new Color(0.96f, 0.94f, 0.91f);
+
+        if (player != null) coinText.text = "Монети: " + player.coinCount;
     }
+
+    
 }
