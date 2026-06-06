@@ -33,8 +33,10 @@ public class DiamondPickup : MonoBehaviour
     {
         if (other.CompareTag("Exit") && hasDiamond)
         {
-            Debug.Log("Рівень пройдено!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (GameManager.Instance != null)
+                GameManager.Instance.WinLevel();
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

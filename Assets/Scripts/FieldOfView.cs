@@ -44,8 +44,10 @@ public class FieldOfView : MonoBehaviour
 
     void GameOver()
     {
-        Debug.Log("ВИЯВЛЕНО! Game Over");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (GameManager.Instance != null)
+            GameManager.Instance.LoseLevel();
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnDrawGizmosSelected()
